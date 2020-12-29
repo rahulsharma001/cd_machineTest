@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-interface ProductRepoInterface
+interface LectureRepoInterface
 {
     public function all();
     public function create(array $data);

@@ -2,19 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Repository\DProductRepoInterface;
+use App\Lecture;
 use Illuminate\Http\Request;
-use DataTables;
 
-class DuplicateProductController extends Controller
+class LectureController extends Controller
 {
-    protected $dproduct;
-
-    public function __construct(DProductRepoInterface $dproduct)
-    {
-        // set the product
-        $this->dproduct = $dproduct;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -22,21 +14,7 @@ class DuplicateProductController extends Controller
      */
     public function index()
     {
-        if (request()->ajax()) {
-            $data = $this->dproduct->all();
-            return Datatables::of($data)
-                ->addIndexColumn()
-                ->addColumn('description', function ($row) {
-                    return $row->description;
-                })
-                ->addColumn('category',function($row){
-                    return $row->category->name;
-                })
-                ->rawColumns(['description', 'action'])
-                ->escapeColumns(['description'])
-                ->make(true);
-        }
-        return view('dproducts.browse');
+        //
     }
 
     /**
@@ -63,10 +41,10 @@ class DuplicateProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Lecture  $lecture
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Lecture $lecture)
     {
         //
     }
@@ -74,10 +52,10 @@ class DuplicateProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Lecture  $lecture
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Lecture $lecture)
     {
         //
     }
@@ -86,10 +64,10 @@ class DuplicateProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Lecture  $lecture
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Lecture $lecture)
     {
         //
     }
@@ -97,10 +75,10 @@ class DuplicateProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Lecture  $lecture
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Lecture $lecture)
     {
         //
     }

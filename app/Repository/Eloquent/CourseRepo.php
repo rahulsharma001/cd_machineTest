@@ -3,11 +3,11 @@
 namespace App\Repository\Eloquent;
 
 use App\Product;
-use App\Repository\ProductRepoInterface;
+use App\Repository\CourseRepoInterface;
 
-class ProductRepository implements ProductRepoInterface
+class CourseRepo implements CourseRepoInterface
 {
-  
+
     // Get all instances of model
     public function all()
     {

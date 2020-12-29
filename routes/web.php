@@ -20,5 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('instructor', 'InstructorController');
 Route::resource('product', 'ProductController');
-Route::get('dproduct', ['uses'=>'DuplicateProductController@index','as'=>'dproduct.index']);
+Route::resource('course', 'CourseController');
+Route::resource('lecture', 'LectureController');
+Route::get('dproduct', ['uses' => 'DuplicateProductController@index', 'as' => 'dproduct.index']);
