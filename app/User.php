@@ -46,4 +46,13 @@ class User extends Authenticatable
 
     //     $this->attributes['password'] = Hash::make($value);
     // }
+    public function course()
+    {
+        return $this->hasMany('App\Course');
+    }
+
+    public function lecture()
+    {
+        return $this->hasMany('App\lecture');
+    }
 }
